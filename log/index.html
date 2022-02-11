@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfroTech Logs</title>
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    
+
+</head>
+<body>
+<div class="wrapper">
+
+
+	<div class="container">
+	<div class="button-box">
+		<div id="bttn"></div>
+		<button type="button" class="bbtn" onclick="login()">Log In</button>
+		<button type="button" class="bbtn" onclick="register()">Register</button>
+			</div>
+			<div class="social">
+                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+            </div>
+		<form class="form" id="login" method="POST">
+			<input type="text" class="input-field" placeholder="Your Email" id="loginn-email" required>
+			
+			<input type="password" class="input-field" placeholder="Password" id="loginn-password" required>
+			<input type="checkbox" class="check-box"><span>Remember my Password</span>
+			<button id="loginn" type="submit" name="submit" class="btn-log">Login</button>
+		</form>
+		<div class="box">
+			<div></div>  
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+
+		<form class="form" id="register" method="POST">
+			
+			<input type="text" class="input-field" placeholder="Username" name="username" required >
+				
+			<input type="password" class="input-field" placeholder="Password" name="password" required>
+			
+			<input type="email" class="input-field" placeholder="Email" name="email" required >
+				
+
+			<input type="checkbox" class="check-box" required><span>I Agree to the terms & conditions</span>
+			<button id="register" type="submit" name="submitt" class="btn-log">Register</button>
+		</form>
+	</div>
+
+	<div class="box">
+		<div></div>  
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+
+	<div id="homepage" class="hide">
+        <button id="signout">Sign Out</button>
+        <h3>Logged In</h3>
+      </div>
+
+</div>
+
+<!--FIREBASE START HERE-->
+	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+	<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+	<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+  
+	<!-- Add Firebase products that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+
+
+	
+
+<script src="js/main.js"></script>
+<script src="js/firebase.js"></script>
+
+<style>
+.form_error span {
+  width: 80%;
+  height: 35px;
+  margin: 3px 10%;
+  font-size: 1.1em;
+  color: #D83D5A;
+}
+.form_error input {
+  border: 1px solid #D83D5A;
+}
+</style>
+</body>
+</html>
