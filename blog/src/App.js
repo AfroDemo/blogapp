@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Create from "./Components/Create";
@@ -9,31 +9,33 @@ import { auth } from './firebase';
 
 function App() {
 
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   const signUserOut = () => {
-    signOut(auth).thhen(() => {
-      localStorage.clear()
-      setIsAuth(false)
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
       window.Location.pathname = "/login";
     })
   }
 
   return (
     <Router className="container">
-      <nav className='nav'>
-        <Link to="/">Home</Link>
-        <Link to="/create">Create Post</Link>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light ms-auto'>
+        <Link className="nav-link" to="/">Home</Link>
         {!isAuth ?
-          <Link to="/login">Login</Link>
-          :
-          <button variant="success" onClick={signUserOut}>LogOut</button>
-        }
+          <Link className="nav-link" to="/login">Login</Link>
+          :(
+            <>
+            <Link className="nav-link" to="/create">Create Post</Link>
+            <button className="btn btn-danger" onClick={signUserOut}>LogOut</button>
+            </>
+        )}
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isAuth = {isAuth} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
-        <Route path="/create" element={<Create />} />
+        <Route path="/create" element={<Create isAuth={isAuth} />} />
         <Route path="/single" element={<Single />} />
       </Routes>
     </Router>

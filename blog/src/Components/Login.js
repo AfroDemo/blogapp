@@ -25,7 +25,7 @@ function Login({setIsAuth}) {
             onClick={signInWithGoogle}
             className='btn btn-lg btn-google btn-block text-uppercase btn-outline'
             >
-                <img src="https://img.icons8.com/color/16/000000/google-logo.png" /> 
+                <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt='' /> 
               Sign with Google
             </button>
       </div>
